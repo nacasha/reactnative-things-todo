@@ -11,5 +11,9 @@ const middleware = [
 
 // Development only middleware
 const composeEnhancers = __DEV__ ? composeWithDevTools : compose
+const rootMiddleware = composeEnhancers(applyMiddleware(...middleware))
 
-export default composeEnhancers(applyMiddleware(...middleware))
+export {
+  sagaMiddleware,
+  rootMiddleware
+}

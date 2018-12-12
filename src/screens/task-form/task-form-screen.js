@@ -29,7 +29,6 @@ class TaskFormScreen extends Component {
     }
 
     createTask(task)
-    Actions.pop()
   }
 
   render() {

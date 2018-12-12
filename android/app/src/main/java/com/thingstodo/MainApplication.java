@@ -10,6 +10,7 @@ import com.facebook.soloader.SoLoader;
 
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.wix.interactable.Interactable;
+import com.azendoo.reactnativesnackbar.SnackbarPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+          new SnackbarPackage(),
           new VectorIconsPackage(),
           new Interactable()
       );

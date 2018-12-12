@@ -1,24 +1,16 @@
 import { createStore } from 'redux'
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import { persistStore } from 'redux-persist'
 
-import rootReducer from '../redux/root'
-import immutableTransform from '../utils/immutable-transform'
+import rootSaga from '../redux-sagas'
+import reduxPersist from './redux-persist'
 
-import middleware from './middleware'
-
-const persistConfig = {
-  storage,
-  key: 'root',
-  blacklist: ['form'],
-  transforms: [immutableTransform]
-}
-
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+import { rootMiddleware, sagaMiddleware } from './middleware'
 
 export default () => {
-  let store = createStore(persistedReducer, middleware)
+  let store = createStore(reduxPersist, rootMiddleware)
   let persistor = persistStore(store)
+
+  sagaMiddleware.run(rootSaga)
 
   return { store, persistor }
 }
