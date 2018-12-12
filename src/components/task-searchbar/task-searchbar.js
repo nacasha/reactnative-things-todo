@@ -4,6 +4,10 @@ import { View, TextInput } from 'react-native'
 import styles from './styles';
 
 class TaskSearchbar extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
   render() {
     return (
       <View style={styles.container}>

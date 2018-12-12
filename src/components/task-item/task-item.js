@@ -8,9 +8,16 @@ import { Colors } from '../../themes'
 import { Actions } from 'react-native-router-flux';
 
 class TaskItem extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
   get renderDoneAction() {
+    const { taskId } = this.props.data
+    const { onDoneAction } = this.props
+
     return (
-      <TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={() => onDoneAction(taskId)}>
         <View style={styles.doneAction}>
           <Icon name="clipboard-check-outline" style={styles.taskActionIcon} />
           <Text style={styles.taskActionLabel}>Done</Text>
@@ -20,8 +27,11 @@ class TaskItem extends Component {
   }
 
   get renderLaterAction() {
+    const { taskId } = this.props.data
+    const { onLaterAction } = this.props
+
     return (
-      <TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={() => onLaterAction(taskId)}>
         <View style={styles.laterAction}>
           <Text style={styles.taskActionLabel}>Later</Text>
           <Icon name="clock-outline" style={styles.taskActionIcon} />
@@ -93,8 +103,7 @@ class TaskItem extends Component {
         {renderDoneAction}
         {renderLaterAction}
         <Interactable.View
-          horizontalOnly={true}
-          boundaries={{ left: -100, right: 100 }}
+          boundaries={{ left: -100, right: 100, top: 0, bottom: 0 }}
           snapPoints={[{ x: 100 }, { x: 0 }, { x: -100 }]}>
           <TouchableNativeFeedback onPress={taskOnPress}>
             <View style={styles.taskContainer}>

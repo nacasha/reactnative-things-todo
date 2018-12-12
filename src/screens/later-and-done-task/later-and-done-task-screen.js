@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 
-import TaskListWeekly from '../../components/task-list-weekly';
+import TaskListWithSection from '../../components/task-list-with-section';
 
 import styles from './styles';
 
@@ -10,89 +10,96 @@ class LaterAndDoneTaskScreen extends Component {
     super(props)
 
     this.state = {
-      weeklyTasks: [
+      tasks: [
         {
-          date: new Date(2018, 11, 20),
-          data: [
-            { id: '1', date: new Date(), title: 'Launch with Julie', category: 'Family', starred: true, priority: 0 },
-            { id: '4', date: new Date(), title: 'Take Zsombek for a walk', category: 'Family', starred: false, priority: 2 },
-            { id: '5', date: new Date(), title: 'Go to gym', category: 'Fitness', starred: true, priority: 0 },
-            { id: '8', date: new Date(), title: 'Watch movies with Karina', category: 'Friend', starred: true, priority: 2 },
-            { id: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
+          section: new Date(2018, 11, 20),
+          tasks: [
+            { taskId: '1', date: new Date(), title: 'Launch with Julie', category: 'Family', starred: true, priority: 0 },
+            { taskId: '4', date: new Date(), title: 'Take Zsombek for a walk', category: 'Family', starred: false, priority: 2 },
+            { taskId: '5', date: new Date(), title: 'Go to gym', category: 'Fitness', starred: true, priority: 0 },
+            { taskId: '8', date: new Date(), title: 'Watch movies with Karina', category: 'Friend', starred: true, priority: 2 },
+            { taskId: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
           ]
         },
         {
-          date: new Date(2018, 11, 21),
-          data: [
-            { id: '4', date: new Date(), title: 'Take Zsombek for a walk', category: 'Family', starred: false, priority: 2 },
-            { id: '5', date: new Date(), title: 'Go to gym', category: 'Fitness', starred: true, priority: 0 },
-            { id: '9', date: new Date(), title: 'Take john to school', category: 'Family', starred: true, priority: 1 },
-            { id: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
+          section: new Date(2018, 11, 21),
+          tasks: [
+            { taskId: '4', date: new Date(), title: 'Take Zsombek for a walk', category: 'Family', starred: false, priority: 2 },
+            { taskId: '5', date: new Date(), title: 'Go to gym', category: 'Fitness', starred: true, priority: 0 },
+            { taskId: '9', date: new Date(), title: 'Take john to school', category: 'Family', starred: true, priority: 1 },
+            { taskId: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
           ]
         },
         {
-          date: new Date(2018, 11, 22),
-          data: [
-            { id: '1', date: new Date(), title: 'Launch with Julie', category: 'Family', starred: true, priority: 0 },
-            { id: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
+          section: new Date(2018, 11, 22),
+          tasks: [
+            { taskId: '1', date: new Date(), title: 'Launch with Julie', category: 'Family', starred: true, priority: 0 },
+            { taskId: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
           ]
         },
         {
-          date: new Date(2018, 11, 23),
-          data: [
-            { id: '3', date: new Date(), title: 'Go to Pharmecy', category: 'Health', starred: false, priority: 0 },
-            { id: '4', date: new Date(), title: 'Take Zsombek for a walk', category: 'Family', starred: false, priority: 2 },
-            { id: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
+          section: new Date(2018, 11, 23),
+          tasks: [
+            { taskId: '3', date: new Date(), title: 'Go to Pharmecy', category: 'Health', starred: false, priority: 0 },
+            { taskId: '4', date: new Date(), title: 'Take Zsombek for a walk', category: 'Family', starred: false, priority: 2 },
+            { taskId: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
           ]
         },
         {
-          date: new Date(2018, 11, 24),
-          data: [
-            { id: '1', date: new Date(), title: 'Launch with Julie', category: 'Family', starred: true, priority: 0 },
-            { id: '2', date: new Date(), title: 'Meet Joshep', category: 'Friend', starred: false, priority: 1 },
-            { id: '5', date: new Date(), title: 'Go to gym', category: 'Fitness', starred: true, priority: 0 },
-            { id: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
+          section: new Date(2018, 11, 24),
+          tasks: [
+            { taskId: '1', date: new Date(), title: 'Launch with Julie', category: 'Family', starred: true, priority: 0 },
+            { taskId: '2', date: new Date(), title: 'Meet Joshep', category: 'Friend', starred: false, priority: 1 },
+            { taskId: '5', date: new Date(), title: 'Go to gym', category: 'Fitness', starred: true, priority: 0 },
+            { taskId: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
           ]
         },
         {
-          date: new Date(2018, 11, 25),
-          data: [
-            { id: '1', date: new Date(), title: 'Launch with Julie', category: 'Family', starred: true, priority: 0 },
-            { id: '3', date: new Date(), title: 'Go to Pharmecy', category: 'Health', starred: false, priority: 0 },
-            { id: '9', date: new Date(), title: 'Take john to school', category: 'Family', starred: true, priority: 1 },
-            { id: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
+          section: new Date(2018, 11, 25),
+          tasks: [
+            { taskId: '1', date: new Date(), title: 'Launch with Julie', category: 'Family', starred: true, priority: 0 },
+            { taskId: '3', date: new Date(), title: 'Go to Pharmecy', category: 'Health', starred: false, priority: 0 },
+            { taskId: '9', date: new Date(), title: 'Take john to school', category: 'Family', starred: true, priority: 1 },
+            { taskId: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
           ]
         },
         {
-          date: new Date(2018, 11, 26),
-          data: [
-            { id: '5', date: new Date(), title: 'Go to gym', category: 'Fitness', starred: true, priority: 0 },
-            { id: '6', date: new Date(), title: 'Meeting with client', category: 'Official', starred: false, priority: 3 },
-            { id: '8', date: new Date(), title: 'Watch movies with Karina', category: 'Friend', starred: true, priority: 2 },
-            { id: '9', date: new Date(), title: 'Take john to school', category: 'Family', starred: true, priority: 1 },
-            { id: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
+          section: new Date(2018, 11, 26),
+          tasks: [
+            { taskId: '5', date: new Date(), title: 'Go to gym', category: 'Fitness', starred: true, priority: 0 },
+            { taskId: '6', date: new Date(), title: 'Meeting with client', category: 'Official', starred: false, priority: 3 },
+            { taskId: '8', date: new Date(), title: 'Watch movies with Karina', category: 'Friend', starred: true, priority: 2 },
+            { taskId: '9', date: new Date(), title: 'Take john to school', category: 'Family', starred: true, priority: 1 },
+            { taskId: '10', date: new Date(), title: 'Walk for an hour', category: 'Fitness', starred: false, priority: 0 }
           ]
         },
         {
-          date: new Date(2018, 11, 27),
-          data: [
-            { id: '1', date: new Date(), title: 'Launch with Julie', category: 'Family', starred: true, priority: 0 },
-            { id: '2', date: new Date(), title: 'Meet Joshep', category: 'Friend', starred: false, priority: 1 },
-            { id: '3', date: new Date(), title: 'Go to Pharmecy', category: 'Health', starred: false, priority: 0 },
-            { id: '4', date: new Date(), title: 'Take Zsombek for a walk', category: 'Family', starred: false, priority: 2 },
-            { id: '5', date: new Date(), title: 'Go to gym', category: 'Fitness', starred: true, priority: 0 },
+          section: new Date(2018, 11, 27),
+          tasks: [
+            { taskId: '1', date: new Date(), title: 'Launch with Julie', category: 'Family', starred: true, priority: 0 },
+            { taskId: '2', date: new Date(), title: 'Meet Joshep', category: 'Friend', starred: false, priority: 1 },
+            { taskId: '3', date: new Date(), title: 'Go to Pharmecy', category: 'Health', starred: false, priority: 0 },
+            { taskId: '4', date: new Date(), title: 'Take Zsombek for a walk', category: 'Family', starred: false, priority: 2 },
+            { taskId: '5', date: new Date(), title: 'Go to gym', category: 'Fitness', starred: true, priority: 0 },
           ]
         },
       ]
     }
   }
 
+  shouldComponentUpdate() {
+    return false
+  }
+
   render() {
-    const { weeklyTasks } = this.state
+    const { taskType } = this.props.navigation.state.params
+    const { tasks } = this.state
+
+    const badgeColor = taskType == 'done' ? 0 : 3
 
     return (
       <View style={styles.container}>
-        <TaskListWeekly weeklyTasks={weeklyTasks} />
+        <TaskListWithSection tasks={tasks} withBadge={true} badgeColor={badgeColor} />
       </View>
     )
   }

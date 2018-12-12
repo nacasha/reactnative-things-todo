@@ -5,9 +5,13 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from './styles';
 
 class TaskBottomActionBar extends Component {
-  renderButton(icon, onpress) {
+  shouldComponentUpdate() {
+    return false
+  }
+
+  renderButton(icon, onPress) {
     return (
-      <TouchableNativeFeedback onpress={onpress}>
+      <TouchableNativeFeedback onPress={() => onPress()}>
         <View style={styles.button}>
           <Icon name={icon} style={styles.iconButton} />
         </View>

@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
-import { ScrollView } from 'react-native'
-
-import InlineCalendar from '../../components/inline-calendar';
-import TaskList from '../../components/task-list';
+import { ScrollView, Text } from 'react-native'
 
 import styles from './styles';
 
 class MonthlyTaskScreen extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
   render() {
     return (
       <ScrollView style={styles.container}>
-        <InlineCalendar />
-
-        <TaskList />
+        <Text>Work in Progress</Text>
       </ScrollView>
     )
   }

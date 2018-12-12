@@ -7,6 +7,10 @@ import styles from './styles';
 import TaskSearchbar from '../task-searchbar';
 
 class AppNavbar extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
   renderButton(icon, onPress) {
     return (
       <View style={styles.button}>
@@ -54,16 +58,28 @@ class AppNavbar extends Component {
   }
 
   get renderRightComponent() {
+    const { routeName } = this.props.data
+    const filteredPlusButton = ['taskForm', 'editTaskForm']
+    const showPlusButton = !filteredPlusButton.includes(routeName)
+    const altJustify = !showPlusButton && { justifyContent: 'flex-end' }
+
     return (
-      <View style={styles.rightComponent}>
+      <View style={[styles.rightComponent, altJustify]}>
         {this.renderButton('bell', () => { })}
-        {this.renderButton('plus', () => { })}
+
+        {
+          showPlusButton && this.renderButton('plus', () => Actions.taskForm())
+        }
       </View>
     )
   }
 
   get renderTaskSearchbar() {
-    return <TaskSearchbar />
+    const { routeName } = this.props.data
+    const filteredSearchBar = ['categories', 'categoryForm', 'taskForm']
+    const showSearchBar = !filteredSearchBar.includes(routeName)
+
+    return showSearchBar && <TaskSearchbar />
   }
 
   render() {

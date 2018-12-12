@@ -4,6 +4,10 @@ import { View, Text } from 'react-native'
 import styles from './styles'
 
 class TaskSummaryCard extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
   get todayDate() {
     const date = new Date()
 

@@ -5,6 +5,10 @@ import styles from './styles';
 import { Colors } from '../../themes';
 
 class TaskTabbar extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
   render() {
     const { props } = this
 

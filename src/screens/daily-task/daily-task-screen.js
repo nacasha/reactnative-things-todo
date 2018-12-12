@@ -1,38 +1,26 @@
 import React, { Component } from 'react'
 import { ScrollView } from 'react-native'
+import { connect } from 'react-redux'
 
-import TaskSummaryCard from '../../components/task-summary-card';
-import TaskList from '../../components/task-list';
+import TaskSummaryCard from '../../components/task-summary-card'
+import TaskList from '../../containers/task-list'
 
-import styles from './styles';
+import styles from './styles'
 
 class DailyTaskScreen extends Component {
-  constructor(props) {
-    super(props)
+  shouldComponentUpdate(nextProps) {
+    const { tasks } = this.props
 
-    this.state = {
-      tasks: []
+    if (nextProps.tasks !== tasks) {
+      return true
     }
-  }
 
-  componentWillMount() {
-    tasks = [
-      { taskId: '1', date: new Date(), title: 'Launch with Julie', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500', category: 'Family', starred: true, priority: 0 },
-      { taskId: '2', date: new Date(), title: 'Meet Joshep', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500', category: 'Friend', starred: false, priority: 1 },
-      { taskId: '3', date: new Date(), title: 'Go to Pharmecy', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500', category: 'Health', starred: false, priority: 0 },
-      { taskId: '4', date: new Date(), title: 'Take Zsombek for a walk', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500', category: 'Family', starred: false, priority: 2 },
-      { taskId: '5', date: new Date(), title: 'Go to gym', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500', category: 'Fitness', starred: true, priority: 0 },
-      { taskId: '6', date: new Date(), title: 'Meeting with client', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500', category: 'Official', starred: false, priority: 3 },
-      { taskId: '7', date: new Date(), title: 'Presentasion with client', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500', category: 'Official', starred: true, priority: 3 },
-      { taskId: '8', date: new Date(), title: 'Watch movies with Karina', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500', category: 'Friend', starred: true, priority: 2 },
-      { taskId: '9', date: new Date(), title: 'Take john to school', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500', category: 'Family', starred: true, priority: 1 },
-      { taskId: '10', date: new Date(), title: 'Walk for an hour', description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500', category: 'Fitness', starred: false, priority: 0 }
-    ]
-
-    this.setState({ tasks })
+    return false
   }
 
   render() {
+    const { tasks } = this.props
+
     return (
       <ScrollView style={styles.container}>
         <TaskSummaryCard />
@@ -43,4 +31,15 @@ class DailyTaskScreen extends Component {
   }
 }
 
-export default DailyTaskScreen
+const mapStateToProps = (state) => {
+  return {
+    tasks: state.task.tasks
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DailyTaskScreen)

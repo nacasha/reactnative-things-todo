@@ -7,13 +7,24 @@
     "test": "jest"
   },
   "dependencies": {
+    "moment": "^2.22.2",
+    "ramda": "^0.26.1",
     "react": "16.6.1",
     "react-native": "0.57.7",
     "react-native-interactable": "^0.1.10",
     "react-native-router-flux": "^4.0.6",
     "react-native-scrollable-tab-view": "^0.10.0",
     "react-native-swiper": "^1.5.14",
-    "react-native-vector-icons": "^6.0.2"
+    "react-native-vector-icons": "^6.0.2",
+    "react-redux": "^5.1.1",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.7",
+    "redux-form": "^7.4.2",
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^0.16.2",
+    "reduxsauce": "^1.0.0",
+    "seamless-immutable": "^7.1.4",
+    "why-did-you-update": "^1.0.6"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",

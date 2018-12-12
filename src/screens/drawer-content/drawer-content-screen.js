@@ -16,13 +16,17 @@ class DrawerContentScreen extends Component {
     }
   }
 
+  shouldComponentUpdate() {
+    return false
+  }
+
   get menuList() {
     return [
-      { icon: 'plus', label: 'New Task', onPress: () => { } },
+      { icon: 'plus', label: 'New Task', onPress: () => Actions.taskForm() },
       { icon: 'star', label: 'Important', onPress: () => { } },
       { icon: 'clipboard-check-outline', label: 'Done', onPress: () => Actions.doneTask() },
       { icon: 'clock-outline', label: 'Later', onPress: () => Actions.laterTask() },
-      { icon: 'bookmark', label: 'Category', onPress: () => { } },
+      { icon: 'bookmark', label: 'Category', onPress: () => Actions.categories() },
       { icon: 'settings', label: 'Settings', onPress: () => { } },
       { icon: 'logout', label: 'Logout', onPress: () => { } },
     ]

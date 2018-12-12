@@ -16,7 +16,7 @@ export default {
   success: '#4ccb41',
   error: '#fc5565',
 
-  textLight: '#b1b6bb',
+  textLight: '#9f9f9f',
   textNormal: '#172735',
   textGray: '#172735'
 }

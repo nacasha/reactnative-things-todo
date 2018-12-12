@@ -5,6 +5,10 @@ import Icon from 'react-native-vector-icons/Feather';
 import styles from './styles';
 
 class Avatar extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
   render() {
     const { image } = this.props
 

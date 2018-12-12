@@ -3,14 +3,14 @@ import { Metrics, Colors, Fonts } from '../../themes';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    elevation: 4,
+    borderBottomWidth: 0,
+    borderBottomColor: Colors.transparent
   },
-  sectionText: {
-    alignItems: 'center',
-    textAlign: 'center',
-    color: Colors.primaryDark,
-    padding: Metrics.padding[0]
-  },
+  itemSeparator: {
+    borderBottomWidth: 0.4,
+    borderBottomColor: '#CCC'
+  }
 })
 
 export default styles

@@ -5,6 +5,10 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './styles';
 
 class MenuList extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
   renderItem({ item }) {
     const { icon, label, onPress } = item
 

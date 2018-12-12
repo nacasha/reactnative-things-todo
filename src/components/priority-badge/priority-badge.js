@@ -5,6 +5,10 @@ import styles from './styles'
 import { Colors } from '../../themes';
 
 class PriorityBadge extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
   render() {
     const { priority } = this.props
 

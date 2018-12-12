@@ -5,6 +5,10 @@ import styles from './styles'
 import PriorityBadge from '../priority-badge';
 
 class TaskDetailsCard extends Component {
+  shouldComponentUpdate() {
+    return false
+  }
+
   render() {
     const { title, description, priority, date, category } = this.props.data
 
